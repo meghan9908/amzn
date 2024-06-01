@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e1e, #3c3c3c);
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+.box {
+    position: relative;
+    display: flex;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.box .item {
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 300px;
+    transition: transform 0.5s, opacity 0.5s;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.box .item .product-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 2;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.box .item:hover .product-name {
+    opacity: 1;
+}
+.box .item .discount {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.box .item:hover .discount {
+    opacity: 1;
+}
+.box .item:nth-child(1) {
+    transform: translate3d(-250px, 0, 0) scale(0.8) rotateY(25deg);
+    z-index: 1;
+    opacity: 0.5;
+}
+.box .item:nth-child(2) {
+    transform: translate3d(-150px, 0, 0) scale(0.9) rotateY(15deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+.box .item:nth-child(3) {
+    transform: translate3d(-50px, 0, 0) scale(0.95) rotateY(5deg);
+    z-index: 3;
+    opacity: 0.9;
+}
+.box .item:nth-child(4) {
+    transform: translate3d(50px, 0, 0) scale(1.0) rotateY(0deg);
+    z-index: 4;
+    opacity: 1;
+}
+.box .item:nth-child(5) {
+    transform: translate3d(150px, 0, 0) scale(0.95) rotateY(-5deg);
+    z-index: 3;
+    opacity: 0.9;
+}
+.box .item:nth-child(6) {
+    transform: translate3d(250px, 0, 0) scale(0.9) rotateY(-15deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+.box .item:nth-child(7) {
+    transform: translate3d(350px, 0, 0) scale(0.8) rotateY(-25deg);
+    z-index: 1;
+    opacity: 0.5;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    gap: 10px;
+}
+.buttons span {
+    border: 1px solid #fff;
+    opacity: 0.6;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+.buttons span:hover {
+    cursor: pointer;
+    opacity: 1.0;
+}
+.buttons span:first-child::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transform: rotate(-45deg);
+}
+.buttons span:last-child::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+}
