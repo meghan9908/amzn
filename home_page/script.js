@@ -3,9 +3,10 @@ document.getElementById('prev').addEventListener('click', function () {
     const items = document.querySelectorAll('.item');
     box.prepend(items[items.length - 1]);
 });
-
-document.getElementById('next').addEventListener('click', function () {
+function next_switch() {
     const box = document.querySelector('.box');
     const items = document.querySelectorAll('.item');
     box.appendChild(items[0]);
-});
+}
+document.getElementById('next').addEventListener('click',next_switch);
+setInterval(next_switch,2000);
