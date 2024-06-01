@@ -4,145 +4,146 @@
     box-sizing: border-box;
 }
 body {
+    font-family: 'Arial', sans-serif;
+    background: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#navigation_bar {
+    width: 100%;
+    height:100px;
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+#todays_offers, #footer {
+    width: 100%;
+    background: #444;
+    padding: 20px;
+    text-align: center;
+}
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px 0;
+}
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #1e1e1e, #3c3c3c);
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
-}
-.box {
-    position: relative;
-    display: flex;
-    transform-style: preserve-3d;
     perspective: 1000px;
+    height: 300px; /* Set a fixed height */
 }
 .box .item {
     position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 100px);
     width: 200px;
     height: 300px;
     transition: transform 0.5s, opacity 0.5s;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 10px;
+    opacity: 0.9;
 }
 .box .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s;
+}
+.box .item:hover img {
+    transform: scale(1.1);
+}
+.box .item:nth-child(1) {
+    transform: translateX(-250px) scale(0.8) rotateY(25deg);
+    z-index: 1;
+}
+.box .item:nth-child(2) {
+    transform: translateX(-150px) scale(0.9) rotateY(10deg);
+    z-index: 2;
+}
+.box .item:nth-child(3) {
+    transform: translateX(-50px) scale(1) rotateY(0deg);
+    z-index: 3;
+}
+.box .item:nth-child(4) {
+    transform: translateX(50px) scale(1) rotateY(0deg);
+    z-index: 4;
+}
+.box .item:nth-child(5) {
+    transform: translateX(150px) scale(0.9) rotateY(-10deg);
+    z-index: 3;
+}
+.box .item:nth-child(6) {
+    transform: translateX(250px) scale(0.8) rotateY(-25deg);
+    z-index: 2;
+}
+.box .item:nth-child(7) {
+    transform: translateX(250px) scale(0.8) rotateY(-25deg);
     z-index: 1;
 }
 .box .item .product-name {
     position: absolute;
-    top: 50%;
+    bottom: 50px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
-    z-index: 2;
+    font-size: 1.2rem;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-.box .item:hover .product-name {
-    opacity: 1;
+    z-index: 10;
 }
 .box .item .discount {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 10px;
     background: rgba(255, 0, 0, 0.8);
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 14px;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-.box .item:hover .discount {
-    opacity: 1;
-}
-.box .item:nth-child(1) {
-    transform: translate3d(-250px, 0, 0) scale(0.8) rotateY(25deg);
-    z-index: 1;
-    opacity: 0.5;
-}
-.box .item:nth-child(2) {
-    transform: translate3d(-150px, 0, 0) scale(0.9) rotateY(15deg);
-    z-index: 2;
-    opacity: 0.7;
-}
-.box .item:nth-child(3) {
-    transform: translate3d(-50px, 0, 0) scale(0.95) rotateY(5deg);
-    z-index: 3;
-    opacity: 0.9;
-}
-.box .item:nth-child(4) {
-    transform: translate3d(50px, 0, 0) scale(1.0) rotateY(0deg);
-    z-index: 4;
-    opacity: 1;
-}
-.box .item:nth-child(5) {
-    transform: translate3d(150px, 0, 0) scale(0.95) rotateY(-5deg);
-    z-index: 3;
-    opacity: 0.9;
-}
-.box .item:nth-child(6) {
-    transform: translate3d(250px, 0, 0) scale(0.9) rotateY(-15deg);
-    z-index: 2;
-    opacity: 0.7;
-}
-.box .item:nth-child(7) {
-    transform: translate3d(350px, 0, 0) scale(0.8) rotateY(-25deg);
-    z-index: 1;
-    opacity: 0.5;
+    font-size: 0.9rem;
+    z-index: 10;
 }
 .buttons {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: absolute;
-    bottom: 5%;
+    bottom: 20px;
+    left: 50%; /* Align at the center horizontally */
+    transform: translateX(-50%); /* Adjust for center alignment */
     gap: 10px;
 }
 .buttons span {
-    border: 1px solid #fff;
-    opacity: 0.6;
+    border: 2px solid #fff;
+    opacity: 0.8;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.3s, opacity 0.3s;
 }
 .buttons span:hover {
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
     opacity: 1.0;
 }
-.buttons span:first-child::before {
+.buttons span:before {
     content: '';
-    width: 15px;
-    height: 15px;
-    border-top: 3px solid #fff;
-    border-left: 3px solid #fff;
-    transform: rotate(-45deg);
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 8px;
 }
-.buttons span:last-child::after {
-    content: '';
-    width: 15px;
-    height: 15px;
-    border-top: 3px solid #fff;
-    border-right: 3px solid #fff;
-    transform: rotate(45deg);
+.prev:before {
+    transform: rotate(135deg);
+}
+.next:before {
+    transform: rotate(-45deg);
 }
