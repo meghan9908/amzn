@@ -1,0 +1,186 @@
+/* Universal Styles for Resetting and Box Sizing */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #111; /* Dark Background for Contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern Font */
+}
+
+/* Trending Deals Wrapper */
+.trending_deals_wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 95%; 
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+.trending_deals_wrapper.expanded{
+    position: absolute;
+    top:1%;
+}
+.trending_deals {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Individual Product Containers */
+.container {
+    background-color: #fff; 
+    height: 450px; /* Increased Container Height */
+    width: 350px; /* Increased Container Width */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 15px; 
+    background-size: cover;
+}
+
+/* Expanded Container Styles */
+.container.expanded {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    padding: 40px;
+    background-color: #fff;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+
+/* Product Image Styling */
+.image {
+    width: 100%; 
+    height: 280px; /* Increased Image Height */
+    margin-bottom: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-in-out;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image fits the container without distortion */
+}
+
+
+/* ... (Rest of the code remains the same) ... */
+
+.product-title {
+    width: 80%;
+    height: 10%;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2em;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+
+.product-rating {
+    color: grey;
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.price {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px 0;
+}
+
+.buynow {
+    width: 100%;
+    height: 50px;
+    background-color: yellow;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.additional-info {
+    display: none;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+}
+
+.container.expanded .additional-info {
+    display: block;
+}
+
+.additional-info .description,
+.additional-info .reviews {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container.expanded {
+        width: 100%;
+    }
+
+    .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .buynow {
+        height: 40px;
+    }
+}
+
+.nav-button {
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 10px;
+    z-index: 1;
+}
+
+.nav-button.left {
+    left: 10px;
+}
+
+.nav-button.right {
+    right: 10px;
+}

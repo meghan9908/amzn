@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Product Page</title>
+</head>
+<body>
+    <div class="trending_deals_wrapper">
+        <button class="nav-button left" onclick="slideLeft()">&#8249;</button>
+        <div class="trending_deals">
+            <!-- Repeat this container for each product -->
+            <div class="container" onclick="expansion(this)">
+                <div class="image"><img src='Screenshot from 2024-05-30 17-00-14.png' alt="Product Image"></div>
+                <span class="product-title"><h2>PRODUCT TITLE</h2></span>
+                <span class="product-rating">Product Rating</span>
+                <br>
+                <span class="price">24,999</span>
+                <br>
+                <div class="buynow"><span>Buy Now</span></div>
+                <div class="additional-info">
+                    <p class="description">This is a great product with many features and benefits...</p>
+                    <div class="reviews">
+                        <h3>Reviews</h3>
+                        <p>Review 1: Excellent product!</p>
+                        <!-- More reviews -->
+                    </div>
+                </div>
+            </div>
+            <!-- Add more containers as needed -->
+        </div>
+        <button class="nav-button right" onclick="slideRight()">&#8250;</button>
+    </div>
+</body>
+</html>
