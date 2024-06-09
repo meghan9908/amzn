@@ -2,63 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Carousel</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Product Page</title>
 </head>
 <body>
-    <div id="navigation_bar">
-        <!-- Navigation bar content goes here -->
-    </div>
-    <div id="slide_carousel" class="carousel-container">
-        <div class="box">
-            <div class="item">
-                <img src="./images/buds.png" alt="Wireless Buds">
-                <div class="product-name">Wireless Buds</div>
-                <div class="discount">Flat 20% Discount</div>
-            </div>
-            <div class="item">
-                <img src="./images/elctronics.png" alt="Electronics">
-                <div class="product-name">Electronics</div>
-                <div class="discount">Buy 1 Get 1 Free</div>
-            </div>
-            <div class="item">
-                <img src="./images/grocery.png" alt="Groceries">
-                <div class="product-name">Groceries</div>
-                <div class="discount">10% Off on Groceries</div>
-            </div>
-            <div class="item">
-                <img src="./images/sneakers.png" alt="Sneakers">
-                <div class="product-name">Sneakers</div>
-                <div class="discount">Flat 30% Off</div>
-            </div>
-            <div class="item">
-                <img src="./images/makeup.png" alt="Makeup">
-                <div class="product-name">Makeup</div>
-                <div class="discount">Free Gift with Purchase</div>
-            </div>
-            <div class="item">
-                <img src="./images/pixel_phone.png" alt="Pixel Phone">
-                <div class="product-name">Pixel Phone</div>
-                <div class="discount">20% Off on Smartphones</div>
-            </div>
-            <div class="item">
-                <img src="./images/medicine.png" alt="Medicine">
-                <div class="product-name">Medicine</div>
-                <div class="discount">Save 15% on Medicines</div>
-            </div>
+    <div class="trending_deals_wrapper">
+        <button class="nav-button left" onclick="slideLeft()">&#8249;</button>
+        <div class="trending_deals">
+            <!-- Product containers will be injected here dynamically -->
         </div>
-        <div class="buttons">
-            <span class="prev" id="prev"></span>
-            <span class="next" id="next"></span>
-        </div>
-    </div>
-    <div id="todays_offers">
-        <!-- Today's offers content goes here -->
-    </div>
-    <div id="footer">
-        <!-- Footer content goes here -->
+        <button class="nav-button right" onclick="slideRight()">&#8250;</button>
     </div>
 </body>
-<script src="script.js"></script>
 </html>
