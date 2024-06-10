@@ -5,7 +5,7 @@ const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
 
-const uri = "mongodb+srv://meghan:<password>@cluster0.4b1seyj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Replace with your MongoDB connection string
+const uri = " with your MongoDB connection string";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function fetchProducts() {
