@@ -186,34 +186,146 @@ function generateHTML(products) {
 </div>
 <!--product cards for beauty -->
 <div class="trending_deals_wrapper beauty-deals">
-    <button class="nav-button left" onclick="slideLeft()"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
+    <button class="nav-button left" onclick="slideLeft('.beauty-deals')"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
     </button>
-    <div class="trending_deals">
+    <div class="trending_deals beauty-deals">
         ${productCards}
     </div>
-    <button class="nav-button right" onclick="slideRight()"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
+    <button class="nav-button right" onclick="slideRight('.beauty-deals')"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
 </button>
 </div>
 <!--product cards for electronics -->
 <div class="trending_deals_wrapper electronics-deals">
-    <button class="nav-button left" onclick="slideLeft()"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
+    <button class="nav-button left" onclick="slideLeft('.electronics')"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
     </button>
-    <div class="trending_deals">
+    <div class="trending_deals electronics">
         ${productCards}
     </div>
-    <button class="nav-button right" onclick="slideRight()"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
+    <button class="nav-button right" onclick="slideRight('.electronics')"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
 </button>
 </div>
 <!--product cards for fashion -->
 <div class="trending_deals_wrapper fashion-deals">
-    <button class="nav-button left" onclick="slideLeft()"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
+    <button class="nav-button left" onclick="slideLeft('.fashion-deals')"><i class="fa-solid fa-chevron-left fa-bounce fa-2x ga-right prev"></i>
     </button>
-    <div class="trending_deals">
+    <div class="trending_deals fashion-deals">
         ${productCards}
     </div>
-    <button class="nav-button right" onclick="slideRight()"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
+    <button class="nav-button right" onclick="slideRight('.fashion-deals')"><i class="fa-solid fa-chevron-right fa-bounce fa-2x ga-right next"></i>
 </button>
     </div>
+    <!-- footer -->
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="footer_wrapper my-5">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #3f51b5">
+    <!-- Grid container -->
+    <div class="footer">
+      <!-- Section: Links -->
+      <section class="mt-5">
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">About us</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Products</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Awards</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Help</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Contact</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+
+      <hr class="my-5" />
+
+      <!-- Section: Text -->
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+              distinctio earum repellat quaerat voluptatibus placeat nam,
+              commodi optio pariatur est quia magnam eum harum corrupti
+              dicta, aliquam sequi voluptate quas.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Social -->
+      <section class="text-center mb-5">
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+      <!-- Section: Social -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >MDBootstrap.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
 </body>
 </html>
     `;

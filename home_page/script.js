@@ -37,26 +37,28 @@ function expansion(element) {
     }
 }
 
-function slideLeft() {
-    const trendingDeals = document.querySelector('.trending_deals');
-    const item = document.querySelectorAll('.container');
+function slideLeft(cont='') {
+    const trendingDeals = document.querySelector(`.trending_deals${cont}`);
+    const item = trendingDeals.querySelectorAll('.container');
     trendingDeals.prepend(item[item.length - 1]);
 }
 
-function slideRight() {
-    const trendingDeals = document.querySelector('.trending_deals');
-    const item = document.querySelectorAll('.container');
+function slideRight(cont='') {
+    const trendingDeals = document.querySelector(`.trending_deals${cont}`);
+    const item = trendingDeals.querySelectorAll('.container');
     trendingDeals.appendChild(item[0]);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let interval = setInterval(slideRight, 2000);
+    let interval = setInterval(() => slideRight(), 2000);
 
-    document.querySelector('.trending_deals_wrapper').addEventListener('mouseover', function () {
-        clearInterval(interval);
-    });
+    document.querySelectorAll('.trending_deals_wrapper').forEach(wrapper => {
+        wrapper.addEventListener('mouseover', function () {
+            clearInterval(interval);
+        });
 
-    document.querySelector('.trending_deals_wrapper').addEventListener('mouseout', function () {
-        interval = setInterval(slideRight, 2000);
+        wrapper.addEventListener('mouseout', function () {
+            interval = setInterval(() => slideRight(), 2000);
+        });
     });
 });
