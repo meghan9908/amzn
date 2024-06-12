@@ -5,7 +5,7 @@ const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
 
-const uri = " with your MongoDB connection string";
+const uri = "replace"; // Replace with your MongoDB connection string
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function fetchProducts() {
@@ -26,7 +26,7 @@ function generateHTML(products) {
                 <br>
                 <span class="price">${product.price}</span>
                 <br>
-                <div class="buynow"><span>Buy Now</span></div>
+                <div class="buynow"><span><a href='/cart/cart.html' target='_blank'>Add To Cart</a></span></div>
                 <div class="additional-info">
                     <p class="description">${product.description || 'No description available.'}</p>
                     <div class="reviews">
@@ -336,6 +336,8 @@ app.get('/', async (req, res) => {
     const htmlContent = generateHTML(products);
     res.send(htmlContent);
 });
+app.use('/cart/cart.css', express.static(path.join(__dirname, '/cart/cart.css')))
+app.use('/cart/cart.html', express.static(path.join(__dirname, '/cart/cart.html')))
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/style.css', express.static(path.join(__dirname, 'style.css')));
 app.use('/script.js', express.static(path.join(__dirname, 'script.js')));

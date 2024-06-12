@@ -1,0 +1,86 @@
+            body{
+                background-color: rgb(9, 29, 49);
+                color:white
+            }
+            .heading{
+                margin-left: 50%;
+                margin-bottom: 10px;
+            }
+            .link{
+                font-size: 18px;
+                text-decoration:none;
+                color:white;
+
+            }
+            .link:hover{
+                cursor:pointer;
+            }
+            .products-list{
+                display:grid;
+                grid-template-columns: 60% 40%;
+                gap: 30px;
+            }
+            .product-image-container{
+                display:grid;
+                grid-template-columns: 40% 60%;
+                border-style: solid;
+                border-color: black;
+                border-width: 2px;
+                width:100%;
+                height:200px;
+                margin-bottom: 20px;
+            }
+            .product-image{
+                padding: 20px;
+                width:100px;
+                object-fit:contain;
+            }
+            .product-details{
+                margin-left:-150px;
+                margin-top: 20px;
+            }
+            .product-name{
+                font-size: x-large ;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .qty{
+                width:30px;
+                text-align:center;
+                height:20px;
+                background-color: balck;
+            }
+            .qty-minus,.qty-plus{
+                background-color: rgb(15, 15, 15);
+                border:none;                
+                height:25px;
+                width:30px;
+                font-size: 17px;
+                margin-top:2px;
+                margin-bottom: 20px;
+            }
+            .delete:hover{
+                text-decoration: underline;
+                cursor:pointer;
+            }
+            .payments{
+                height:250px;
+                margin-right: 50px;
+                padding: 5%;
+                font-size: large;
+                background-color:rgb(12, 42, 71) ;
+                position:sticky;
+                top:0px;
+            } 
+            .payments-right{
+                float:right;
+                font-size: medium;
+                padding-right: 15px;
+            }     
+            .checkout{
+                background-color: rgb(201, 204, 6);
+                width:95%;
+                height:50px;
+                font-size: large;
+                cursor:pointer;
+            } 

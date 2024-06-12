@@ -50,15 +50,13 @@ function slideRight(cont='') {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let interval = setInterval(() => slideRight(), 2000);
+    let interval = setInterval(slideRight, 2000);
 
-    document.querySelectorAll('.trending_deals_wrapper').forEach(wrapper => {
-        wrapper.addEventListener('mouseover', function () {
-            clearInterval(interval);
-        });
+    document.querySelector('.trending_deals_wrapper').addEventListener('mouseover', function () {
+        clearInterval(interval);
+    });
 
-        wrapper.addEventListener('mouseout', function () {
-            interval = setInterval(() => slideRight(), 2000);
-        });
+    document.querySelector('.trending_deals_wrapper').addEventListener('mouseout', function () {
+        interval = setInterval(slideRight, 2000);
     });
 });
