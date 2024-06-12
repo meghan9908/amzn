@@ -13,7 +13,6 @@
         </div>
         <div class="products-list">
             <div class="product-info">
-
                 <div class="product-image-container">
                     <img src="https://images-cdn.ubuy.co.in/64ef979827e9a37b097b7202-rolex-gmt-master-ii-men-39-s-watch.jpg" class="product-image">
                     <div class="product-details">
@@ -73,7 +72,7 @@
                             <input type="text" class="qty" min="1" value="1">
                             <button class="qty-plus" onclick="qtyInc()">+</button>
                             <br>
-                            <span class="delete">Delete</span>
+                            <span class="delete" >Delete</span>
                         </div>
                     </div>
        
@@ -91,8 +90,21 @@
                 <span>Grand Total</span>
                 <span class="payments-right total">&#8377 11,999</span>
                 <br><br>
-                <button class="checkout"> PROCEED TO CHECKOUT</button>
+                <button class="checkout" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> PROCEED TO CHECKOUT</button>
             </div>
         </div>
+
+
+<div id="id01" class="modal">
+  
+  <div class="modal-content animate">
+
+    <div class="container">
+      Your order has placed successfully   
+    </div>
+
+  </div>
+</div>
+
     </body>
 </html>
