@@ -20,4 +20,13 @@ function qtyInc(){
         for(let i=0;i<l.length;i++){
             l[i].innerHTML=`&#8377 ${p}`;
         }
+    }
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.querySelector('.modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
