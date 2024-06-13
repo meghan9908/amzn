@@ -3,9 +3,10 @@
     <head>
         <link rel="stylesheet" href="cart.css">
         <script src="cart.js">
+            
         </script>
     </head>
-    <body>
+    <body onload="myfun()">
         <div>
             <h1 class="heading">Your cart</h1>
             <a href="#" class="heading link">continue shopping</a><br>
@@ -13,73 +14,13 @@
         </div>
         <div class="products-list">
             <div class="product-info">
-                <div class="product-image-container">
-                    <img src="https://images-cdn.ubuy.co.in/64ef979827e9a37b097b7202-rolex-gmt-master-ii-men-39-s-watch.jpg" class="product-image">
-                    <div class="product-details">
-                        <span class="product-name"> Rolex GMT-Master II Men's Watch with Jubilee Bracelet</span>
-                        <br><br>
-                        <span>&#8377 </span>
-                        <span class="price">11,999</span>
-                        <br><br>
-                        <button class="qty-minus" onclick="qtyDec()">-</button>
-                        <input type="text" class="qty" min="1" value="1">
-                        <button class="qty-plus" onclick="qtyInc()">+</button>
-                        <br>
-                        <span class="delete">Delete</span>
-                    </div>
-                </div>
-
-                <div class="product-image-container">
-                    <img src="https://images-cdn.ubuy.co.in/64ef979827e9a37b097b7202-rolex-gmt-master-ii-men-39-s-watch.jpg" class="product-image">
-                    <div class="product-details">
-                        <span class="product-name"> Rolex GMT-Master II Men's Watch with Jubilee Bracelet</span>
-                        <br><br>
-                        <span>&#8377 </span>
-                        <span class="price">11,999</span>
-                        <br><br>
-                        <button class="qty-minus" onclick="qtyDec()">-</button>
-                        <input type="text" class="qty" min="1" value="1">
-                        <button class="qty-plus" onclick="qtyInc()">+</button>
-                        <br>
-                        <span class="delete">Delete</span>
-                    </div>
-                </div>
-
-                <div class="product-image-container">
-                    <img src="https://images-cdn.ubuy.co.in/64ef979827e9a37b097b7202-rolex-gmt-master-ii-men-39-s-watch.jpg" class="product-image">
-                    <div class="product-details">
-                        <span class="product-name"> Rolex GMT-Master II Men's Watch with Jubilee Bracelet</span>
-                        <br><br>
-                        <span>&#8377 </span>
-                        <span class="price">11,999</span>
-                        <br><br>
-                        <button class="qty-minus" onclick="qtyDec()">-</button>
-                        <input type="text" class="qty" min="1" value="1">
-                        <button class="qty-plus" onclick="qtyInc()">+</button>
-                        <br>
-                        <span class="delete">Delete</span>
-                    </div>
-                </div>
-                    <div class="product-image-container">
-                        <img src="https://images-cdn.ubuy.co.in/64ef979827e9a37b097b7202-rolex-gmt-master-ii-men-39-s-watch.jpg" class="product-image">
-                        <div class="product-details">
-                            <span class="product-name"> Rolex GMT-Master II Men's Watch with Jubilee Bracelet</span>
-                            <br><br>
-                            <span>&#8377 </span>
-                            <span class="price">11,999</span>
-                            <br><br>
-                            <button class="qty-minus" onclick="qtyDec()">-</button>
-                            <input type="text" class="qty" min="1" value="1">
-                            <button class="qty-plus" onclick="qtyInc()">+</button>
-                            <br>
-                            <span class="delete" >Delete</span>
-                        </div>
-                    </div>
-       
+                
             </div>
-            <div class="payments">
+            
+            <div>
+                <div class="payments">
                 <span>ORDER SUMMARY</span>
-                <span class="payemts-right"> (1 item)</span>
+                <span class="payemts-right cartLen"> </span>
                 <br><br>
                 <span class="payments-left">Order Value</span>
                 <span class="payments-right total">&#8377 11,999</span>
@@ -90,7 +31,8 @@
                 <span>Grand Total</span>
                 <span class="payments-right total">&#8377 11,999</span>
                 <br><br>
-                <button class="checkout" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> PROCEED TO CHECKOUT</button>
+                <button class="checkout" onclick="document.getElementById('id01').style.display='block'"> PROCEED TO CHECKOUT</button>
+                </div>
             </div>
         </div>
 

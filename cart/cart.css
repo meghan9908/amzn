@@ -7,7 +7,7 @@
 
   .container {
     padding: 20px;
-    font-size:20px;
+    font-size:22px;
     text-align:center;
     color:yellowgreen;
     font-family: 'Times New Roman', Times, serif;
@@ -29,7 +29,7 @@
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
+    background-color: #413e3e;
     margin: 15% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%; /* Could be more or less, depending on screen size */
@@ -68,14 +68,15 @@ body{
     color:white;
 }
 .heading{
-    margin-left: 50%;
     margin-bottom: 10px;
+    text-align: center;
+    text-decoration: underline;
 }
 .link{
     font-size: 18px;
     text-decoration:none;
     color:white;
-
+    margin-left:45%;
 }
 .link:hover{
     cursor:pointer;
@@ -97,17 +98,17 @@ body{
 }
 .product-image{
     padding: 20px;
-    width:100px;
-    object-fit:contain;
+    width:30%;
+    opacity:0.85;
 }
 .product-details{
-    margin-left:-150px;
-    margin-top: 20px;
+    margin-left:-30%;
+    margin-top: 5%;
 }
 .product-name{
-    font-size: x-large ;
+    font-size: 150% ;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 3%;
 }
 .qty{
     width:30px;
@@ -124,12 +125,14 @@ body{
     margin-top:2px;
     margin-bottom: 20px;
 }
+.delete{
+  margin-left: 5%;
+}
 .delete:hover{
     text-decoration: underline;
     cursor:pointer;
 }
 .payments{
-    height:250px;
     margin-right: 50px;
     padding: 5%;
     font-size: large;
@@ -144,8 +147,9 @@ body{
 }     
 .checkout{
     background-color: rgb(201, 204, 6);
-    width:100%;
-    height:50px;
+    width:95%;
+    height:auto;
+    padding:2%;
     font-size: large;
     cursor:pointer;
 } 
