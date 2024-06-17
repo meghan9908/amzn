@@ -286,6 +286,7 @@ body {
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.1); 
 }
+
 .trending_deals_wrapper.beauty-deals{
     top:180%;
 }
@@ -296,7 +297,10 @@ body {
     top:340%;
 }
 .trending_deals_wrapper.expanded {
+    width: 90%;
+    height:fit-content;
     position: absolute;
+    top:80%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -308,7 +312,6 @@ body {
     justify-content: baseline;
     transition: transform 0.4s ease-in-out;
 }
-
 
 /* Individual Product Containers */
 .container {
@@ -328,6 +331,8 @@ body {
     margin: 10px 15px; 
     background-size: cover;
 }
+
+
 
 /* Expanded Container Styles */
 .container.expanded {
@@ -394,6 +399,7 @@ body {
     align-items: center;
     font-weight: bold;
     margin-top: auto;
+    cursor: pointer;
 }
 
 .additional-info {

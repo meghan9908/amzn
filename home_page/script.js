@@ -9,19 +9,18 @@ document.getElementById('next').addEventListener('click', function () {
     const items = document.querySelectorAll('.item');
     box.appendChild(items[0]);
 });
+
 function expansion(element) {
     const expandedClass = 'expanded';
     const allContainers = document.querySelectorAll('.container');
-    const wrapper = document.querySelector('.trending_deals_wrapper');
-    const currentlyExpanded = document.querySelector(`.${expandedClass}`);
+    const wrapper = element.closest('.trending_deals_wrapper');
+    const wrappers = document.querySelectorAll('.trending_deals_wrapper');
+    const currentlyExpanded = document.querySelector(`.container.${expandedClass}`);
 
     if (currentlyExpanded && currentlyExpanded !== element) {
         currentlyExpanded.classList.remove(expandedClass);
         allContainers.forEach(container => {
-            if (container !== element) {
-                
-                container.style.display = 'flex';
-            }
+            container.style.display = 'flex';
         });
     }
 
@@ -35,28 +34,58 @@ function expansion(element) {
     } else {
         allContainers.forEach(container => container.style.display = 'flex');
     }
+
+    if (wrapper.classList.contains(expandedClass)) {
+        wrappers.forEach(wrap => {
+            if (!wrap.contains(element)) wrap.style.display = 'none';
+        });
+    } else {
+        wrappers.forEach(wrap => wrap.style.display = 'flex');
+    }
 }
 
-function slideLeft(cont='') {
+function slideLeft(cont = '') {
     const trendingDeals = document.querySelector(`.trending_deals${cont}`);
-    const item = trendingDeals.querySelectorAll('.container');
-    trendingDeals.prepend(item[item.length - 1]);
+    const items = trendingDeals.querySelectorAll('.container');
+    trendingDeals.prepend(items[items.length - 1]);
 }
 
-function slideRight(cont='') {
+function slideRight(cont = '') {
     const trendingDeals = document.querySelector(`.trending_deals${cont}`);
-    const item = trendingDeals.querySelectorAll('.container');
-    trendingDeals.appendChild(item[0]);
+    const items = trendingDeals.querySelectorAll('.container');
+    trendingDeals.appendChild(items[0]);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let interval = setInterval(slideRight, 2000);
+    let interval = setInterval(() => slideRight(), 2000);
 
-    document.querySelector('.trending_deals_wrapper').addEventListener('mouseover', function () {
-        clearInterval(interval);
-    });
+    document.querySelectorAll('.trending_deals_wrapper').forEach(wrapper => {
+        wrapper.addEventListener('mouseover', function () {
+            clearInterval(interval);
+        });
 
-    document.querySelector('.trending_deals_wrapper').addEventListener('mouseout', function () {
-        interval = setInterval(slideRight, 2000);
+        wrapper.addEventListener('mouseout', function () {
+            interval = setInterval(() => slideRight(), 2000);
+        });
     });
 });
+function addToCart(productId) {
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ productId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Product added to cart!');
+        } else {
+            alert('Failed to add product to cart.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}

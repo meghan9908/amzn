@@ -1,11 +1,13 @@
 
-
+const EventEmitter = require('events');
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const path = require('path');
 const app = express();
+const cart =  require('./cart_server')
+const myEmitter = new EventEmitter();
+const uri = "Replace with your MongoDB connection string";
 
-const uri = "replace"; // Replace with your MongoDB connection string
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function fetchProducts() {
@@ -15,7 +17,15 @@ async function fetchProducts() {
     const products = await collection.find({}).toArray();
     return products;
 }
-
+async function add_to_cart(product){
+  await client.connect();
+  const database = client.db('AMAZON');
+  const collection = database.collection('cart');
+  collection.insertOne(product,function(err,res){
+    if(err) throw err;
+    console.log('sucessfully inserted')
+  })  
+}
 function generateHTML(products) {
     const productCards = products.map(product => {
         return `
@@ -26,7 +36,7 @@ function generateHTML(products) {
                 <br>
                 <span class="price">${product.price}</span>
                 <br>
-                <div class="buynow"><span><a href='/cart/cart.html' target='_blank'>Add To Cart</a></span></div>
+                <div class="buynow"><span onclick="addToCart('${product._id}')">Add To Cart</span></div>
                 <div class="additional-info">
                     <p class="description">${product.description || 'No description available.'}</p>
                     <div class="reviews">
@@ -87,8 +97,8 @@ function generateHTML(products) {
             </ul>
             <ul class="navbar-nav d-flex flex-row">
               <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#!">
-                  <i class="fa fa-shopping-cart fa-2x ga-right"></i>
+                <a class="nav-link" href="/cart">
+                  <i class="fa fa-shopping-cart fa-2x ga-right" ></i>
                 </a>
               </li>
               <li class="nav-item me-3 me-lg-0">
@@ -171,8 +181,8 @@ function generateHTML(products) {
         </div>
     </div>
     <div class=buttons>
-        <button class="navi-button left"id='next'><i class="fa-solid fa-chevron-left fa-fade fa-2x ga-right prev"></i>
-        <button class="navi-button right" id='prev' ><i class="fa-solid fa-chevron-right fa-fade fa-2x ga-right next"></i>
+        <button class="navi-button left"id='prev'><i class="fa-solid fa-chevron-left fa-fade fa-2x ga-right prev"></i>
+        <button class="navi-button right" id='next' ><i class="fa-solid fa-chevron-right fa-fade fa-2x ga-right next"></i>
     </div>
 <!--product cards for trending deals -->
 <div class="trending_deals_wrapper">
@@ -330,14 +340,47 @@ function generateHTML(products) {
 </html>
     `;
 }
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'cart')));
 
 app.get('/', async (req, res) => {
     const products = await fetchProducts();
     const htmlContent = generateHTML(products);
     res.send(htmlContent);
 });
+app.post('/add-to-cart', async (req, res) => {
+    const { productId } = req.body;
+    if (!productId) {
+        return res.status(400).json({ success: false, message: 'Product ID is required' });
+    }
+
+    try {
+        const database = client.db('AMAZON');
+        const productsCollection = database.collection('products');
+        console.log(productId)
+        const product = await productsCollection.findOne({ _id: new ObjectId(productId)});
+        if (!product) {
+            console.log(`"product found"${product}`)
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+        await add_to_cart(product);
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error adding to cart:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+app.get('/cart',async(req,res)=>{
+    console.log(typeof cart)
+    console.log(typeof cart.createCartCollection);
+    const creation = await cart.createCartCollection();
+    const products = await cart.fetchCartProducts();
+    const htmlContent = cart.generateCartHTML(products)
+    res.send(htmlContent)
+})
+app.use('/cart/cart.js',express.static(path.join(__dirname,'/cart/cart.js')))
 app.use('/cart/cart.css', express.static(path.join(__dirname, '/cart/cart.css')))
-app.use('/cart/cart.html', express.static(path.join(__dirname, '/cart/cart.html')))
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/style.css', express.static(path.join(__dirname, 'style.css')));
 app.use('/script.js', express.static(path.join(__dirname, 'script.js')));
@@ -346,3 +389,4 @@ const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
