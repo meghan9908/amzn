@@ -1,86 +1,160 @@
-            body{
-                background-color: rgb(9, 29, 49);
-                color:white
-            }
-            .heading{
-                margin-left: 50%;
-                margin-bottom: 10px;
-            }
-            .link{
-                font-size: 18px;
-                text-decoration:none;
-                color:white;
+ 
 
-            }
-            .link:hover{
-                cursor:pointer;
-            }
-            .products-list{
-                display:grid;
-                grid-template-columns: 60% 40%;
-                gap: 30px;
-            }
-            .product-image-container{
-                display:grid;
-                grid-template-columns: 40% 60%;
-                border-style: solid;
-                border-color: black;
-                border-width: 2px;
-                width:100%;
-                height:200px;
-                margin-bottom: 20px;
-            }
-            .product-image{
-                padding: 20px;
-                width:100px;
-                object-fit:contain;
-            }
-            .product-details{
-                margin-left:-150px;
-                margin-top: 20px;
-            }
-            .product-name{
-                font-size: x-large ;
-                font-weight: bold;
-                margin-bottom: 20px;
-            }
-            .qty{
-                width:30px;
-                text-align:center;
-                height:20px;
-                background-color: balck;
-            }
-            .qty-minus,.qty-plus{
-                background-color: rgb(15, 15, 15);
-                border:none;                
-                height:25px;
-                width:30px;
-                font-size: 17px;
-                margin-top:2px;
-                margin-bottom: 20px;
-            }
-            .delete:hover{
-                text-decoration: underline;
-                cursor:pointer;
-            }
-            .payments{
-                height:250px;
-                margin-right: 50px;
-                padding: 5%;
-                font-size: large;
-                background-color:rgb(12, 42, 71) ;
-                position:sticky;
-                top:0px;
-            } 
-            .payments-right{
-                float:right;
-                font-size: medium;
-                padding-right: 15px;
-            }     
-            .checkout{
-                background-color: rgb(201, 204, 6);
-                width:95%;
-                height:50px;
-                font-size: large;
-                cursor:pointer;
-            } 
+  /* Extra styles for the cancel button */
+
+  
+  /* Center the image and position the close button */
+
+  .container {
+    padding: 20px;
+    font-size:22px;
+    text-align:center;
+    color:yellowgreen;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #413e3e;
+    margin: 15% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+
+  }
+  
+body{
+    background-color: rgb(9, 29, 49);
+    color:white;
+}
+.heading{
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+.link{
+    font-size: 18px;
+    text-decoration:none;
+    color:white;
+    margin-left:45%;
+}
+.link:hover{
+    cursor:pointer;
+}
+.products-list{
+    display:grid;
+    grid-template-columns: 60% 40%;
+    gap: 30px;
+}
+.product-image-container{
+    display:grid;
+    grid-template-columns: 40% 60%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    width:100%;
+    height:auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.price,.total{
+    font-size: large;
+}
+.product-image{
+    padding: 20px;
+    width:40%;
+    opacity:0.85;
+    border-radius:30px;
+}
+.product-details{
+    margin-left:-30%;
+    margin-top: 5%;
+}
+.product-name{
+    font-size: x-large ;
+    font-weight: bold;
+    overflow:hidden;
+    height:50px;
+    width:98%;
+    margin-bottom: -10px;
+}
+.qty{
+    width:30px;
+    text-align:center;
+    height:20px;
+    background-color: #888;
+}
+.qty-minus,.qty-plus{
+    background-color: rgb(65, 61, 61);
+    border:none;                
+    height:25px;
+    width:30px;
+    font-size: 17px;
+    margin-top:2px;
+    margin-bottom: 20px;
+}
+.delete:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+.payments{
+    margin-right: 50px;
+    padding: 5%;
+    font-size: large;
+    background-color:rgb(12, 42, 71) ;
+    position:sticky;
+    top:0px;
+} 
+.payments-right{
+    float:right;
+    font-size: medium;
+    padding-right: 15px;
+}     
+.checkout{
+    background-color: rgb(201, 204, 6);
+    width:100%;
+    height:auto;
+    padding:2%;
+    font-size: large;
+    cursor:pointer;
+} 

@@ -101,7 +101,6 @@ body {
     height: fit-content;
     min-width: 100vw;
     min-height: 60vh;
-    border: 2px solid green;
     display: flex;
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -274,7 +273,6 @@ body {
 /*------------product cards------------------ */
 /* Trending Deals Wrapper */
 .trending_deals_wrapper {
-    border:2px solid #f44336;
     position:absolute;
     overflow: hidden;
     width: 95%; 

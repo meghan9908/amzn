@@ -1,19 +1,15 @@
 
-const EventEmitter = require('events');
 const express = require('express');
 const { MongoClient, ObjectId } = require('mongodb');
 const path = require('path');
 const app = express();
 const cart =  require('./cart_server')
-const myEmitter = new EventEmitter();
-const uri = "Replace with your MongoDB connection string";
-
+const uri = "Replace with your own connection string";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
 async function fetchProducts() {
     await client.connect();
     const database = client.db('AMAZON'); // Replace with your database name
-    const collection = database.collection('products'); // Replace with your collection name
+    const collection = database.collection('products_1'); // Replace with your collection name
     const products = await collection.find({}).toArray();
     return products;
 }
@@ -350,6 +346,7 @@ app.get('/', async (req, res) => {
     res.send(htmlContent);
 });
 app.post('/add-to-cart', async (req, res) => {
+    console.log("executionnnn");
     const { productId } = req.body;
     if (!productId) {
         return res.status(400).json({ success: false, message: 'Product ID is required' });
@@ -371,6 +368,25 @@ app.post('/add-to-cart', async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
+app.post('/cart/delete_from_cart', async(req,res)=>{
+  console.log('deletion started');
+  const { productId } = req.body;
+  try {
+    const database = client.db('AMAZON');
+    const productsCollection = database.collection('cart');
+    console.log(productId)
+    const product = await productsCollection.deleteOne({ _id: new ObjectId(productId)});
+    if (!product) {
+        console.log(`"product deleted"${product}`)
+        return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    res.json({ success: true });
+}
+catch  (error){
+  console.error('Error deleting from cart:', error);
+  res.status(500).json({ success: false, message: 'Internal server error' });
+}
+});
 app.get('/cart',async(req,res)=>{
     console.log(typeof cart)
     console.log(typeof cart.createCartCollection);
@@ -385,7 +401,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/style.css', express.static(path.join(__dirname, 'style.css')));
 app.use('/script.js', express.static(path.join(__dirname, 'script.js')));
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
